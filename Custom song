@@ -1,28 +1,35 @@
 live_loop :bass do
-  use_synth :sine
-  play :c2
-  sleep 1
+  24.times do
+    use_synth :sine
+    play :c2
+    sleep 1
+  end
+  stop
 end
 
-sleep 3
-live_loop :melody, sync: :bass do
-  
-  use_synth :piano
-  play :e4
-  sleep 0.5
-  play :g4
-  sleep 0.5
-  play :b4
-  sleep 0.5
-end
+sleep 4
 
+live_loop :melody do
+  20.times do
+    use_synth :piano
+    play :e4
+    sleep 0.5
+    play :g4
+    sleep 0.5
+    play :b4
+    sleep 0.5
+  end
+  stop
+end
 
 sleep 8
-live_loop :drums, sync: :bass do
-  sample :drum_bass_hard
-  sleep 0.5
-  sample :drum_snare_hard
-  sleep 0.5
-end
 
-#
+live_loop :drums do
+  24.times do
+    sample :drum_bass_hard
+    sleep 0.5
+    sample :drum_snare_hard
+    sleep 0.5
+  end
+  stop
+end
