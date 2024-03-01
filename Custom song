@@ -1,8 +1,11 @@
+a=0
+
 live_loop :bass do
   24.times do
     use_synth :sine
-    play :c2
+    play :c2, amp: a
     sleep 1
+    a=a+0.05
   end
   stop
 end
@@ -25,16 +28,11 @@ end
 sleep 8
 
 live_loop :drums do
-  24.times do
+  20.times do
     sample :drum_bass_hard
     sleep 0.5
     sample :drum_snare_hard
     sleep 0.5
   end
   stop
-end
-
-# Fade out
-with_fx :level, amp: 1 do |fx|
-  control fx, amp: 0, amp_slide: 60
 end
