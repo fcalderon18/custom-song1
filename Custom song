@@ -33,3 +33,8 @@ live_loop :drums do
   end
   stop
 end
+
+# Fade out
+with_fx :level, amp: 1 do |fx|
+  control fx, amp: 0, amp_slide: 60
+end
